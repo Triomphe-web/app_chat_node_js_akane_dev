@@ -1,0 +1,52 @@
+img.img-responsive{
+    text-align: center;
+}
+a:hover{
+    text-decoration: none;
+}
+div.form-sign-in{
+    width: 100%;
+    max-width: 460px;
+    padding: 15px;
+    margin: 0 auto;
+    border: 2px solid #555555;
+    border-radius: 10px;
+}
+#check{
+    width: 14px;
+    height: 14px;
+}
+h4{
+    font-weight: 10px;
+}
+.flex{
+    display: flex;
+    align-items: center;
+}
+div.radio_droite{
+    border-right: 1px solid grey;
+}
+nav{
+    background-color: #232323;
+    height: 60px;
+}
+a#sign{
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+p.condition{
+    font-size: 12px;
+}
+div.form-sign-out{
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 0 auto;
+}
+label.labelForm{
+    font-size: 15px;font-weight: bold;margin-top: 15px;
+}
+li{
+    list-style-type: disc;
+}

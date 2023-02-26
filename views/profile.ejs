@@ -1,0 +1,122 @@
+<%- include('header.ejs') %>
+    <link rel="stylesheet" href="css/welcome.css">
+    <title>Chat</title>
+    </head>
+
+    <body>
+        <%- include('navbar_profile.ejs') %>
+        <div class="container">
+            <div class="row" id="none_1_profil">
+                <div class="profile col-12 z-index-n1 ">
+                    <div class="col-12 bg-dark bg-gradiant " id="div_img">
+                        <button class="btn btn-outline-light float-right align-bottom ml-n1 mt-1">Modifier couverture</button>
+                    </div>
+                </div>
+                <div class="col-12 z-index-1 text-center mt-n5">
+                    <img src="/img/user_profil.png" alt="IMG" id="img_prof1234" width="100" height="100">
+                    <h2 id="username"><%= data.name %></h2><small id="user_profiles" class="d-none">[ <%= data.profil %> ]</small>
+                </div>
+            </div>
+            <div class="row" id="none_2_profil">
+                <div class="col-lg-12 col-md-12 col-xs-12 ml-3" id="bordered">
+                    <blockquote class="blockquote">
+                        <footer class="blockquote-footer" id="desc">Votre biographie</footer>
+                    </blockquote>
+                </div>
+                
+                <div class="col-lg-7 col-md-12 col-xs-12 mb-3" id="right_border">
+                    <div class="col-12 mt-2">
+                        <div class="form-group">
+                            <small for="comment" class="text-muted ">Petite déscription :</small>
+                            <textarea name="text_area" id="bio" cols="10" rows="3" class="form-control"></textarea >
+                            
+                        </div>
+                        <button class="btn col-12 btn-dark" id="add_desc" onclick="change_desc()">Ajouter / Rafraichir</button>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-12 col-xs-12" id="info">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link active" id="email_tabs" onclick="email_tabs_action()">Adresse email</a>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" id="niveau_tabs" onclick="niveau_tabs_action()">Niveaux</a>
+                        </li>
+                        
+                        
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" id="pass_tabs" onclick="pass_tabs_action()">Mot de passe</a>
+                        </li>
+                    </ul>
+                    <br>
+                    <div class="mail col-12" id="mail_div">
+                        <h6 class="text-muted">Adresse email actuel : <strong id="email_value"><%= data.email %></strong></h6>
+                        <hr>
+                        <div class="form-group">
+                            <label for="mail">Ajouter un adresse mail</label>
+                            <div class="input-group">
+                                <input type="email" name="mail" id="email_form" placeholder="Ajouter un adresse email" class="form-control">
+                                <div class="input-group-append">
+                                    <button class="btn btn-info" id="btn_mail_update" onclick="change_email()">Ajouter</button>
+                                </div>
+                            </div>
+                            <small class="text-muted">Nous ne partagerons pas votre adresse email </small>
+                        </div>
+                    </div>
+                    
+                    <div class="niveaux hide col-12" id="niveau_div">
+                        <% if(data.niveau) { %>
+                        <h6 class="text-muted">Niveaux actuel : <strong id="niv_update"><%= data.niveau %></strong></h6>
+                        <hr>
+                        <div class="form-group">
+                            <label for="mail">Changer votre niveau :</label>
+                            <div class="input-group">
+                                <select name="niveau" id="niveau" class="custom-select my-1 mr-sm-2">
+                                    <option selected>Modifier votre niveau</option>
+                                    <option value="L1">L1</option>
+                                    <option value="L2">L2</option>
+                                    <option value="L3">L3</option>
+                                    <option value="M1">M1</option>
+                                    <option value="M2">M2</option>
+                                </select>   
+                            </div>
+                            <button class="btn btn-info mt-2 btn-sm col-12" onclick="change_niveau()" id="btn_niv_update">Ajouter</button>
+                            
+                        </div>
+                        <% } %>
+                    </div>
+                    
+
+                    <div id="password" class="col-12 hide">
+                        <label for="mail">Entrer votre mot de passe actuel :</label>
+                        <br>
+                        <input type="password" placeholder="Votre ancien mot de passe" name="pass" id="pass" class="form-control">
+                        <br>
+                        <label for="mail">Entrer votre nouveau mot de passe  :</label>
+                        <br>
+                        <input type="password" placeholder="Votre nouveaux mot de passe" name="pass" id="pass" class="form-control">
+                        <small class="text-muted">Veuillez utiliser entre 8 et 20 caractere</small>
+                        <br>
+                        <br>
+                        <button class="btn-sm btn-info col-12 btn">Modifier</button>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+         <!-- Message compenant -->
+        <div class="container-fluid d-none" id="none_3_mess">
+            <div class="row mt-2 ml-4">
+                <h3 class="text-muted">Message</h3>
+            </div>
+            <hr>
+        </div>
+    <script src="/jquery/jquery-3.6.0.js"></script>
+    <script src="/js/bootstrap.bundle.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/welcome_script.js"></script>
+    </body>
+
+    </html>

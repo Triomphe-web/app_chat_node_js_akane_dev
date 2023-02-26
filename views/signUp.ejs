@@ -1,0 +1,74 @@
+<%- include('header.ejs') %>
+<link rel="stylesheet" href="css/addUser.css">
+<title>S'identifier</title>
+</head>
+<body>
+<%- include('navbar.ejs') %>
+<% if(message){ %>
+    <!-- alert error  -->
+    <div class="container-fluid">
+      <div class="col-12">
+        <div class="alert text-center alert-danger alert-dismissible fade show" role="alert">
+          <strong>Erreur : </strong>Rentrée des valeur correct et un mot de passe de plus de 8 caractères
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  <% } %>
+<div class="container mt-3">   
+    <div class="row">
+        <div class="text-center col-12">
+            <label for=""class="labelForm text-center">Etes-vous ?</label>
+        </div>
+    </div>
+    <form action="/welcome" method="post">
+        <div class="row">
+            <div class="col-6 text-center radio_droite">
+                <div class="form-check">
+                    <input type="radio" name="radio" value="etudiant" id="radio_etud" onclick="show_select()" class="form-check-input">
+                    <label for="" class="form-check-label">Un étudiant</label>
+                </div>
+            </div>
+            <div class="col-6 text-center">
+                <div class="form-check">
+                    <input type="radio" name="radio" value="professeur" id="radio_prof" onclick="hide_select()" class="form-check-input">
+                    <label for="" class="form-check-label">Un Profésseur</label>
+                </div>
+            </div>
+        </div>
+        <hr>
+        <div class="form-sign-in">
+                <h4 class="col-12">S'Inscrire</h4>
+                <div class="form-group">
+                    <label for="nom" class="col-12 labelForm">Entrer votre Pseudo </label>
+                    <input type="text" required onkeyup="checkName()" name="name" id="nom_for_add_user" class="form-control col-12 regex" placeholder="Entrer votre pseudo">
+                        <p id="error"></p>
+                    <label for="mail" class="col-12 labelForm">Entrer votre adresse Mail </label>
+                    <input type="email" required onkeyup="checkEmail()" name="mail" id="inputMail"class="form-control col-12 regex" placeholder="Entrer votre mail">
+                    <p id="err"></p>
+                    <select name="niveau" id="niveau" class="custom-select my-1 mr-sm-2">
+                        <option selected>Entrée votre niveau</option>
+                        <option value="L1">L1</option>
+                        <option value="L2">L2</option>
+                        <option value="L3">L3</option>
+                        <option value="M1">M1</option>
+                        <option value="M2">M2</option>
+                    </select>
+                    <label for="pass" class="col-12 labelForm">Entrer votre Mot de passe </label>
+                    <div class="input-group">
+                        <input type="password" required onkeyup="checkingPassword()" name="password" id="pass" class="form-control col-12" placeholder="mot de passe">
+                        <div class="input-group-append">
+                            <button class="btn btn-info" onclick="changeValue()" type="button" id="button-addon"><img src="img/vue.png" width="14" height="14" alt="vue"></button>
+                        </div>
+                    </div>
+                    <small class="text-muted">Entrée un mot de passe entre 8 à 12 caractères</small>
+                    <button type="submit" id="key_button" class="col-12 btn btn-dark mt-5">Envoyer</button>
+                </div>
+    </form>
+    </div>
+</div>
+<script src="/js/index.js"></script>
+</body>
+</html>

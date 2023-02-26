@@ -1,0 +1,33 @@
+img{
+    border-radius: 10%;
+    outline: none;
+}
+h2{
+    font-family: Arial, Helvetica, sans-serif;
+}
+h2#username{
+    text-transform: capitalize;
+}
+div#div_img{
+    height: 150px;
+}
+div#right_border{
+    border-right: 1px solid rgba(194, 184, 184, 0.89);
+}
+div#btn{
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
+.hide {
+    display: none;
+}
+.show{
+    display: block;
+}
+.btn_act{
+    width: 1px;
+    display: block;
+    height: 38px;
+}
+
